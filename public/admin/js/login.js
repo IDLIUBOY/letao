@@ -1,7 +1,7 @@
 $(function(){
 console.log(123);
 
-     
+//   表单验证   
 $("form").bootstrapValidator({
     feedbackIcons: {
         valid: 'glyphicon glyphicon-ok',
@@ -15,8 +15,8 @@ $("form").bootstrapValidator({
                      message: '用户名不能为空'
                   },
                   stringLength: {
-                    min: 6,
-                    max: 30,
+                    min: 3,
+                    max: 8,
                     message: '用户名长度必须在6到30之间'
                   }
                }
@@ -36,6 +36,39 @@ $("form").bootstrapValidator({
       }
 
 
+})
+
+// 表单验证完成时发送ajax请求
+
+$("form").on('success.form.bv', function (e) {
+    // 阻止a的默认行为
+    e.preventDefault();
+    //使用ajax提交逻辑
+
+    $.ajax({
+        type:"post",
+        url:"/employee/employeeLogin",
+        data:$("form").serialize(),
+        success:function(info){
+            
+            
+          if(info.error===1000){
+              alert("用户名不存在");
+          }
+          if(info.error===1001){
+            alert("密码错误");
+        }
+         if(info.success){
+             location.href="index.html";
+         } 
+              
+        }
+    })
+});
+
+$("[type=reset]").on('click',function(){
+    $("form").data("bootstrapValidator").resetForm(true);
+    
 })
 
 
