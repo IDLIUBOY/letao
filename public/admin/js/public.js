@@ -9,10 +9,46 @@ $(document).ajaxSend(function () {
     NProgress.start();
     console.log("请求开始");
 });
-
+// 全局
 $(document).ajaxStop(function () {
     setTimeout(function(){
         NProgress.done();
         console.log("请求结束"); 
     })
 });
+
+// 二级显示与隐藏
+$('.second').prev().on('click',function(e){
+    $(this).next().slideToggle();
+    
+})
+// $('#second').on('click',function(e){
+//     $('.second').slideUp();
+//     // e.stopPropagation();
+
+//     //  console.log(e);
+          
+    
+// })
+
+$('.left').on('click',function(){
+   $(".index_left").toggleClass('in_left')
+   $('body').toggleClass('run'); 
+})
+
+$(".right").on('click',function(){
+    $("#logout").modal('show');
+})
+
+$('.btn_logout').on('click',function(){
+      $.ajax({
+          type:'get',
+        //   url:'/user/logout',
+          url:"/employee/employeeLogout",
+          success:function(info){
+             if(info.success===true){
+                 location.href="login.html";
+             }
+          }
+      })
+})
