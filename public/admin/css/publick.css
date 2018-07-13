@@ -42,7 +42,7 @@ a:active{
     text-decoration:none;
 }
 
-.active{
+.manage .active{        
     background: #1d1f21;
     border-left: 2px solid red !important;
 }
@@ -152,3 +152,10 @@ body{
     /* background: rgb(66, 193, 202); */
 }
 
+
+.table.table-bordered th,
+.table.table-bordered td{
+    text-align: center;
+    /* line-height: 100%; */
+    vertical-align: middle;
+}
