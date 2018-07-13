@@ -38,8 +38,8 @@
                         <span>分类管理</span>
                     </a>
                     <div class="second " style="display:block;">
-                            <a class="active" class="series" href="first.html">一级分类</a>
-                            <a class="series" href="second.html">二级分类</a>
+                        <a class="active" class="series" href="first.html">一级分类</a>
+                        <a class="series" href="second.html">二级分类</a>
                     </div>
                 </li>
                 <li>
@@ -63,44 +63,108 @@
         </div>
         <!-- 主体部分 -->
         <div class="container-fluid">
-            <ol class="breadcrumb">
-                <li><a href="#">系统管理</a></li>
-                <li>一级分类</li>
-            </ol>
-        </div>
-
-        <div class="change">
-
+            <div>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">系统管理</a>
+                    </li>
+                    <li>一级分类</li>
+                </ol>
+            </div>
+            <div class="change">
+                <table class="table table-bordered ">
+                    <button class="btn btn-default Btn mb_20">添加分类</button>
+                    <thead>
+                        <tr>
+                            <th width="20%">序号</th>
+                            <th width="80%">分类名称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 挖个坑 -->
+                    </tbody>
+                </table>
+                <!-- 分页 -->
+                <div class="text-right">
+                    <ul id="paginator"></ul>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div id="logout" class="modal fade" tabindex="-1">
-            <div class="modal-dialog modal-sm" role="document">
-              <div class="modal-content">
+    <!-- 模态框 -->
+    <div id="add" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">温馨提示</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">添加一级类</h4>
+                </div>
+
+                <form>
+                    <div class="modal-body ">
+
+                        <div class="form-group">
+                            <input name="categoryName" type="text" class="form-control" placeholder="请输入一级分类">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-danger ">添加</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- 退出 -->
+    <div id="logout" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
                 </div>
                 <div class="modal-body ">
-                  <p class="text-danger">
-                      <span class="glyphicon glyphicon-info-sign"></span>
-                      你确定退出吗
-                  </p>
+                    <p class="text-danger">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                        你确定退出吗
+                    </p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal" >取消</button>
-                  <button type="button" class="btn btn-danger btn_logout">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger btn_logout">确定</button>
                 </div>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-          
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <script type="text/html" id="tplt">
+        {{ each rows v i}}
+        <tr>
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{v.categoryName}}</td>
+        </tr>
+        {{ /each}}
+    </script>
+
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="lib/nprogress/nprogress.js"></script>
+    <script src="lib/artTemplate/template-web.js"></script>
     <script src="js/public.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/first.js"></script>
 </body>
 
 </html>
