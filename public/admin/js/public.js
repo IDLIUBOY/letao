@@ -30,16 +30,16 @@ $('.second').prev().on('click',function(e){
           
     
 // })
-
+// 左侧边显示隐藏
 $('.left').on('click',function(){
    $(".index_left").toggleClass('in_left')
    $('body').toggleClass('run'); 
 })
-
+// 右侧边显示隐藏
 $(".right").on('click',function(){
     $("#logout").modal('show');
 })
-
+// 退出
 $('.btn_logout').on('click',function(){
       $.ajax({
           type:'get',

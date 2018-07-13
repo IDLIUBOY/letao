@@ -140,3 +140,15 @@ body{
    
 }
 
+.change .chart_left{
+         width: 45%;
+         height: 400px;
+         /* background: blueviolet; */
+}
+
+.change .chart_right{
+    width: 45%;
+    height: 400px;
+    /* background: rgb(66, 193, 202); */
+}
+

@@ -51,7 +51,6 @@ $(function () {
         // 阻止a的默认行为
         e.preventDefault();
         //使用ajax提交逻辑
-
         $.ajax({
             type: "post",
             url: "/employee/employeeLogin",
