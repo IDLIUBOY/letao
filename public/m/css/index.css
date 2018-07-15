@@ -1,0 +1,44 @@
+.main {
+  background: #fff;
+}
+.photo {
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+.photo a {
+  display: block;
+  width: 33.33%;
+  float: left;
+}
+.photo a img {
+  width: 100%;
+  display: block;
+}
+.shoes {
+  padding: 0 10px;
+}
+.shoes div {
+  width: 48%;
+  border: 1px solid #666;
+  float: left;
+  text-align: center;
+  padding: 0 8px 15px 8px;
+  margin-bottom: 8px;
+}
+.shoes div img {
+  width: 100%;
+  display: block;
+}
+.shoes div p {
+  margin: 0;
+}
+.shoes div p:nth-child(3) {
+  height: 50px;
+  line-height: 50px;
+}
+.shoes div p > .now {
+  color: red;
+}
+.shoes div:nth-child(even) {
+  margin-left: 16px;
+}
